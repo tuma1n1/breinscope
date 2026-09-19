@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/Breinscope-chrome-logo.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Lato:wght@400;700&display=swap"
+      rel="stylesheet"
+    >
+    <link rel="preload" as="image" href="/images/hero/water-pump.jpg" />
+    <title>Breinscope</title>
+ 
+    <!--
+      JSON-LD structured data — Organization schema.
+      This is static and identical on every page, so it lives here once
+      rather than being duplicated inside the Seo.tsx component on every
+      route. Lets Google potentially show a knowledge panel (logo,
+      address, sector) directly in search results.
+ 
+      TODO before launch:
+        - Confirm/replace the logo URL once a real logo file exists at
+          that path in /public.
+        - Add real sameAs URLs (LinkedIn, etc.) once social profiles are
+          confirmed with the client — remove the array entirely if none
+          exist yet rather than leaving placeholder links.
+    -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Breinscope Consultants Limited",
+      "alternateName": "Breinscope",
+      "url": "https://breinscope.co.ke",
+      "logo": "https://breinscope.co.ke/Breinscope-logo-xbg.png",
+      "description": "A Kenyan-owned development consultancy delivering measurable impact across 11 sectors in East and Central Africa since 2002.",
+      "foundingDate": "2002",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Office Suite 26, 3rd Floor, Diani Road, Off Ole Dume Road",
+        "addressLocality": "Nairobi",
+        "addressCountry": "KE"
+      },
+      "areaServed": ["Kenya", "Somalia", "Rwanda", "South Sudan"],
+      "sameAs": []
+    }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

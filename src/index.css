@@ -1,0 +1,20 @@
+@import "tailwindcss";
+
+@theme { 
+    --color-brand-navy: #1B2A5C;
+    --color-brand-blue: #2C6FB0;
+    --color-brand-sky: #8FB9D6;
+    --color-brand-amber: #F5A623;
+    --color-brand-coral: #E85D75;
+    --color-brand-offwhite: #F7F9FB;
+    --color-brand-charcoal: #2B2E33;
+    --color-brand-green: #4A9B6E;
+    --font-heading: "Poppins", sans-serif;
+    --font-body: "Lato", sans-serif;
+    --animate-marquee: marquee 32s linear infinite;
+}
+
+@keyframes marquee {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+}
