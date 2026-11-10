@@ -6,7 +6,7 @@ export interface Partner {
 export const partners: Partner[] = [
   { name: "World Bank", image: "/images/logos/World_Bank_Group_logo.svg" },
   { name: "IFC", image: "/images/logos/International_Finance_Corporation_logo.svg" },
-  { name: "USAID", image: "/images/logos/United_States_Agency_for_International_Development.svg" },
+  { name: "USAID", image: "/images/logos/United_States_Agency_for_International_Development.png" },
   { name: "KfW", image: "/images/logos/KfW-Bankengruppe-Logo.svg" },
   { name: "European Commission", image: "/images/logos/European_Commission.svg" },
   { name: "Sida", image: "/images/logos/Sida_logo.svg" },

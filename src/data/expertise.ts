@@ -28,7 +28,7 @@ export const expertiseAreas: ExpertiseArea[] = [
     description:
       "Climate-smart, inclusive agricultural systems and rural infrastructure that strengthen food security and livelihoods.",
     icon: Wheat,
-    image: "/images/banners/Agriculture.jpg",
+    image: "/images/banners/Agriculture.webp",
   },
   {
     slug: "climate-change-environment",
@@ -36,7 +36,7 @@ export const expertiseAreas: ExpertiseArea[] = [
     description:
       "Data-driven climate adaptation, environmental governance, and natural resource management across Africa.",
     icon: Leaf,
-    image: "/images/banners/Climate_change.jpg",
+    image: "/images/banners/Climate_change.webp",
   },
   {
     slug: "energy-power-systems",
@@ -44,7 +44,7 @@ export const expertiseAreas: ExpertiseArea[] = [
     description:
       "End-to-end energy consulting — generation, transmission, distribution, regulation, and renewable transition.",
     icon: Zap,
-    image: "/images/banners/Solar_Energy.jpg",
+    image: "/images/banners/Solar_Energy.webp",
   },
   {
     slug: "water-sewerage",
@@ -52,7 +52,7 @@ export const expertiseAreas: ExpertiseArea[] = [
     description:
       "Engineering and governance solutions expanding safe water access and sanitation for urban and rural communities.",
     icon: Droplets,
-    image: "/images/banners/Water_treatment.jpg",
+    image: "/images/banners/Water_treatment.webp",
   },
   {
     slug: "rural-urban-infrastructure",
@@ -60,7 +60,7 @@ export const expertiseAreas: ExpertiseArea[] = [
     description:
       "Resilient infrastructure planning — from rural roads and housing to smart city and municipal systems.",
     icon: Building2,
-    image: "/images/banners/Urban-vs-Rural-Development.jpg",
+    image: "/images/banners/Urban-vs-Rural-Development.webp",
   },
   {
     slug: "road-transportation",
@@ -68,7 +68,7 @@ export const expertiseAreas: ExpertiseArea[] = [
     description:
       "Integrated transport planning that improves connectivity, safety, and sustainable urban mobility.",
     icon: Truck,
-    image: "/images/banners/Road&Transport.jpg",
+    image: "/images/banners/Road&Transport.webp",
   },
   {
     slug: "education-skills-development",
@@ -76,7 +76,7 @@ export const expertiseAreas: ExpertiseArea[] = [
     description:
       "Strengthening education systems and workforce capability through evidence-based, technology-enabled solutions.",
     icon: GraduationCap,
-    image: "/images/banners/Education.jpg",
+    image: "/images/banners/Education.webp",
   },
   {
     slug: "digital-development",
@@ -84,7 +84,7 @@ export const expertiseAreas: ExpertiseArea[] = [
     description:
       "ICT and AI-enabled solutions accelerating outcomes in governance, health, agriculture, and enterprise.",
     icon: Cpu,
-    image: "/images/banners/Technology.jpg",
+    image: "/images/banners/Technology.webp",
   },
   {
     slug: "human-capital-consulting",
@@ -92,7 +92,7 @@ export const expertiseAreas: ExpertiseArea[] = [
     description:
       "People-centered talent strategy — from recruitment and leadership development to organizational design.",
     icon: Users2,
-    image: "/images/banners/Human_Capital.jpg",
+    image: "/images/banners/Human_Capital.webp",
   },
   {
     slug: "global-health-wash",
@@ -100,7 +100,7 @@ export const expertiseAreas: ExpertiseArea[] = [
     description:
       "Integrated public health and WASH programming strengthening systems and community resilience.",
     icon: HeartPulse,
-    image: "/images/banners/Health.png",
+    image: "/images/banners/Health.webp",
   },
   {
     slug: "governance-social-economic-development",
@@ -108,6 +108,6 @@ export const expertiseAreas: ExpertiseArea[] = [
     description:
       "Institutional strengthening, social inclusion, and economic growth strategies for public and private clients.",
     icon: Landmark,
-    image: "/images/banners/Governance.avif",
+    image: "/images/banners/Governance.webp",
   },
 ];

@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import ScrollToTop from "./components/Scrolltotop";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -16,9 +16,11 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import NotFound from "./pages/NotFound";
 import './App.css'
 
+// The router itself is supplied by the entry point: <BrowserRouter> in
+// main.tsx, <StaticRouter> in entry-server.tsx (build-time prerender).
 function App() {
   return (
-    <BrowserRouter>
+    <>
       <ScrollToTop />
       <Navbar />
       <Routes>
@@ -36,7 +38,7 @@ function App() {
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
-    </BrowserRouter>
+    </>
   );
 }
 

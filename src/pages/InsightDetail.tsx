@@ -3,6 +3,7 @@ import { ArrowRight, ArrowLeft, Calendar, Clock, FileText } from "lucide-react";
 import { insights } from "../data/insights";
 import { projects } from "../data/projects";
 import Seo from "../components/Seo";
+import { articleSchema, breadcrumbSchema } from "../lib/schema";
  
 export default function InsightDetail() {
   const { slug } = useParams<{ slug: string }>();
@@ -53,6 +54,22 @@ export default function InsightDetail() {
         title={article.title}
         description={article.excerpt}
         path={`/insights/${article.slug}`}
+        type="article"
+        jsonLd={[
+          articleSchema({
+            title: article.title,
+            description: article.excerpt,
+            path: `/insights/${article.slug}`,
+            image: article.image,
+            date: article.date,
+            author: article.author,
+            category: article.category,
+          }),
+          breadcrumbSchema([
+            { name: "Insights", path: "/insights" },
+            { name: article.title, path: `/insights/${article.slug}` },
+          ]),
+        ]}
       />
       {/* ================= HEADER ================= */}
       <section className="bg-brand-navy py-20">

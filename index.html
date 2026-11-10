@@ -2,50 +2,112 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#1B2A5C" />
     <link rel="icon" type="image/png" href="/Breinscope-chrome-logo.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
- 
+    <link rel="apple-touch-icon" href="/Breinscope-chrome-logo.png" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Lato:wght@400;700&display=swap"
       rel="stylesheet"
     >
-    <link rel="preload" as="image" href="/images/hero/water-pump.jpg" />
-    <title>Breinscope</title>
- 
+    <!-- Placeholder only: at build time scripts/prerender.mjs replaces it
+         with each page's real <title>, meta description, canonical, Open
+         Graph tags and image preloads (all from the page's <Seo>). -->
+    <title>Breinscope Consultants Limited</title>
+
     <!--
-      JSON-LD structured data — Organization schema.
-      This is static and identical on every page, so it lives here once
-      rather than being duplicated inside the Seo.tsx component on every
-      route. Lets Google potentially show a knowledge panel (logo,
-      address, sector) directly in search results.
- 
-      TODO before launch:
-        - Confirm/replace the logo URL once a real logo file exists at
-          that path in /public.
-        - Add real sameAs URLs (LinkedIn, etc.) once social profiles are
-          confirmed with the client — remove the array entirely if none
-          exist yet rather than leaving placeholder links.
+      Site-wide JSON-LD: the organization (with a stable @id that the
+      page-level Service/Article schemas in src/lib/schema.ts point at)
+      and the website. Feeds Google's knowledge panel and gives AI answer
+      engines authoritative facts about the company.
+
+      TODO: add real profile URLs to "sameAs" (LinkedIn, X, Facebook…)
+      once confirmed. These strongly help search engines and AI tools tie
+      the profiles to the company.
     -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "ProfessionalService",
-      "name": "Breinscope Consultants Limited",
-      "alternateName": "Breinscope",
-      "url": "https://breinscope.co.ke",
-      "logo": "https://breinscope.co.ke/Breinscope-logo-xbg.png",
-      "description": "A Kenyan-owned development consultancy delivering measurable impact across 11 sectors in East and Central Africa since 2002.",
-      "foundingDate": "2002",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Office Suite 26, 3rd Floor, Diani Road, Off Ole Dume Road",
-        "addressLocality": "Nairobi",
-        "addressCountry": "KE"
-      },
-      "areaServed": ["Kenya", "Somalia", "Rwanda", "South Sudan"],
-      "sameAs": []
+      "@graph": [
+        {
+          "@type": ["Organization", "ProfessionalService"],
+          "@id": "https://breinscope.co.ke/#organization",
+          "name": "Breinscope Consultants Limited",
+          "alternateName": ["Breinscope", "Breinscope Consultants"],
+          "url": "https://breinscope.co.ke",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://breinscope.co.ke/Breinscope-logo-xbg.png"
+          },
+          "image": "https://breinscope.co.ke/og-default.jpg",
+          "description": "A Kenyan-owned development consultancy providing research, monitoring and evaluation, capacity building, strategic planning and programme design across 11 sectors in East and Central Africa since 2002.",
+          "slogan": "Your Best Partner for Success",
+          "foundingDate": "2002",
+          "email": "info@breinscope.co.ke",
+          "telephone": "+254729325577",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Office Suite 26, 3rd Floor, Diani Road, Off Ole Dume Road",
+            "postOfficeBoxNumber": "30114-00100",
+            "addressLocality": "Nairobi",
+            "addressCountry": "KE"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": -1.2921,
+            "longitude": 36.8219
+          },
+          "contactPoint": [
+            {
+              "@type": "ContactPoint",
+              "contactType": "customer service",
+              "telephone": "+254729325577",
+              "email": "info@breinscope.co.ke",
+              "areaServed": ["KE", "SO", "RW", "SS"],
+              "availableLanguage": ["English"]
+            }
+          ],
+          "areaServed": [
+            { "@type": "Country", "name": "Kenya" },
+            { "@type": "Country", "name": "Somalia" },
+            { "@type": "Country", "name": "Rwanda" },
+            { "@type": "Country", "name": "South Sudan" },
+            { "@type": "Place", "name": "East Africa" },
+            { "@type": "Place", "name": "Central Africa" }
+          ],
+          "knowsAbout": [
+            "Development consulting",
+            "Monitoring, evaluation and learning",
+            "Baseline surveys and impact evaluations",
+            "Capacity building",
+            "Agriculture and rural development",
+            "Climate change adaptation",
+            "Water, sanitation and hygiene (WASH)",
+            "Water safety planning",
+            "Energy and power systems",
+            "Infrastructure",
+            "Education and skills development",
+            "Digital development",
+            "Human capital consulting",
+            "Global health",
+            "Governance and social development",
+            "Gender and social inclusion",
+            "Conflict-sensitive programming"
+          ],
+          "sameAs": []
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://breinscope.co.ke/#website",
+          "url": "https://breinscope.co.ke",
+          "name": "Breinscope Consultants Limited",
+          "inLanguage": "en",
+          "publisher": { "@id": "https://breinscope.co.ke/#organization" }
+        }
+      ]
     }
     </script>
   </head>

@@ -1,4 +1,5 @@
 import { useState, type FormEvent } from "react";
+import { telHref } from "../lib/contact";
 import { NavLink } from "react-router-dom";
 import { Phone, Mail, MapPin, X, Send, Loader2, CheckCircle2 } from "lucide-react";
 import { offices } from "../data/offices";
@@ -13,7 +14,6 @@ const exploreLinks = [
   { label: "Clients & Partners", href: "/clients" },
   { label: "Where We Work", href: "/where-we-work" },
   { label: "Insights", href: "/insights" },
-  { label: "Careers", href: "/careers" },
   { label: "Privacy Policy", href: "/privacy-policy" },
 ];
  
@@ -57,12 +57,14 @@ export default function Footer() {
   return (
     <>
       <footer className="bg-brand-navy text-white">
-        <div className="mx-auto max-w-7xl px-6 py-16">
+        <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16">
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1.2fr_0.8fr_1.6fr]">
             {/* ---------------- Company + CTA ---------------- */}
             <div>
               <div className="flex items-center gap-3">
                 <img
+                  loading="lazy"
+                  decoding="async"
                   src="/Breinscope-logo-xbg.png"
                   alt="Breinscope Consultants Limited"
                   className="h-10 w-auto"
@@ -125,13 +127,13 @@ export default function Footer() {
                         className="mt-1.5 flex items-center gap-2 text-xs text-brand-sky/90"
                       >
                         <Phone className="h-3.5 w-3.5 flex-none" />
-                        <span>{phone}</span>
+                        <a href={telHref(phone)} className="hover:underline">{phone}</a>
                       </div>
                     ))}
                     {office.email && (
                       <div className="mt-1.5 flex items-center gap-2 text-xs text-brand-sky/90">
                         <Mail className="h-3.5 w-3.5 flex-none" />
-                        <span>{office.email}</span>
+                        <a href={`mailto:${office.email}`} className="break-all hover:underline">{office.email}</a>
                       </div>
                     )}
                   </div>
@@ -156,7 +158,7 @@ export default function Footer() {
           onClick={closeModal}
         >
           <div
-            className="w-full max-w-md rounded-2xl border border-white/20 bg-brand-navy/80 p-6 shadow-2xl backdrop-blur-2xl"
+            className="max-h-[calc(100dvh-2rem)] w-full max-w-md overflow-y-auto rounded-2xl border border-white/20 bg-brand-navy/80 p-5 shadow-2xl backdrop-blur-2xl sm:p-6"
             onClick={(event) => event.stopPropagation()}
           >
             <div className="flex items-start justify-between">

@@ -1,9 +1,12 @@
-import { useState, type FormEvent } from "react";
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import { lazy, useState, type FormEvent } from "react";
+import { telHref } from "../lib/contact";
 import { Phone, Mail, MapPin, Send, Loader2, CheckCircle2 } from "lucide-react";
 import Seo from "../components/Seo";
+import ClientOnly from "../components/ClientOnly";
 import { offices } from "../data/offices";
-import { brandPin } from "../lib/brandPin";
+import { breadcrumbSchema } from "../lib/schema";
+
+const OfficesMap = lazy(() => import("../components/maps/OfficesMap"));
  
 const FORMSPREE_ENDPOINT = "https://formspree.io/f/xvkowgnz";
  
@@ -59,6 +62,7 @@ export default function ContactUs() {
         title="Contact Us"
         description="Get in touch with Breinscope Consultants — offices in Nairobi, Kisumu, Mogadishu, Kigali, and Juba, ready to discuss your next project."
         path="/contact"
+        jsonLd={breadcrumbSchema([{ name: "Contact Us", path: "/contact" }])}
       />
       {/* ================= HERO ================= */}
       <section className="bg-brand-navy py-20">
@@ -77,10 +81,10 @@ export default function ContactUs() {
       </section>
  
       {/* ================= FORM + MAP ================= */}
-      <section className="mx-auto max-w-6xl px-6 py-20">
+      <section className="mx-auto max-w-6xl px-4 py-14 sm:px-6 sm:py-20">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-2">
           {/* ---------------- General enquiry form ---------------- */}
-          <div className="rounded-2xl border-t-4 border-brand-amber bg-white p-8 shadow-lg">
+          <div className="rounded-2xl border-t-4 border-brand-amber bg-white p-5 shadow-lg sm:p-8">
             <h2 className="font-heading text-2xl font-semibold text-brand-navy">
               Send us a message
             </h2>
@@ -243,31 +247,11 @@ export default function ContactUs() {
             <p className="mt-2 text-sm text-brand-charcoal/70">
               {hq.address}
             </p>
-            <div className="relative isolate mt-5 overflow-hidden rounded-2xl border border-brand-sky/30 shadow-lg">
+            <div className="relative isolate mt-5 h-72 overflow-hidden rounded-2xl border border-brand-sky/30 bg-brand-sky/20 shadow-lg sm:h-90">
               {hq.lat !== undefined && hq.lng !== undefined && (
-                <MapContainer
-                  center={[hq.lat, hq.lng]}
-                  zoom={14}
-                  scrollWheelZoom={false}
-                  style={{ height: "360px", width: "100%" }}
-                >
-                  <TileLayer
-                    attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                  />
-                  <Marker position={[hq.lat, hq.lng]} icon={brandPin}>
-                    <Popup>
-                      <div className="font-body">
-                        <p className="font-heading text-sm font-semibold text-brand-navy">
-                          {hq.name}
-                        </p>
-                        <p className="mt-1 text-xs text-brand-charcoal">
-                          {hq.address}
-                        </p>
-                      </div>
-                    </Popup>
-                  </Marker>
-                </MapContainer>
+                <ClientOnly>
+                  <OfficesMap offices={[hq]} center={[hq.lat, hq.lng]} zoom={14} />
+                </ClientOnly>
               )}
             </div>
             <p className="mt-2 text-xs text-brand-charcoal/60">
@@ -278,13 +262,13 @@ export default function ContactUs() {
               {hq.phones.map((phone) => (
                 <div key={phone} className="flex items-center gap-2 text-sm text-brand-charcoal">
                   <Phone className="h-4 w-4 text-brand-blue" />
-                  <span>{phone}</span>
+                  <a href={telHref(phone)} className="hover:underline">{phone}</a>
                 </div>
               ))}
               {hq.email && (
                 <div className="flex items-center gap-2 text-sm text-brand-charcoal">
                   <Mail className="h-4 w-4 text-brand-blue" />
-                  <span>{hq.email}</span>
+                  <a href={`mailto:${hq.email}`} className="break-all hover:underline">{hq.email}</a>
                 </div>
               )}
             </div>
@@ -323,13 +307,13 @@ export default function ContactUs() {
                     className="mt-2 flex items-center gap-2 text-sm text-brand-charcoal/80"
                   >
                     <Phone className="h-4 w-4 flex-none text-brand-blue" />
-                    <span>{phone}</span>
+                    <a href={telHref(phone)} className="hover:underline">{phone}</a>
                   </div>
                 ))}
                 {office.email && (
                   <div className="mt-2 flex items-center gap-2 text-sm text-brand-charcoal/80">
                     <Mail className="h-4 w-4 flex-none text-brand-blue" />
-                    <span>{office.email}</span>
+                    <a href={`mailto:${office.email}`} className="break-all hover:underline">{office.email}</a>
                   </div>
                 )}
               </div>

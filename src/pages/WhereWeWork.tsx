@@ -1,8 +1,12 @@
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import { lazy } from "react";
+import { telHref } from "../lib/contact";
 import { Phone, Mail, MapPin, Briefcase, Clock, Layers } from "lucide-react";
 import { offices } from "../data/offices";
-import { brandPin } from "../lib/brandPin";
 import Seo from "../components/Seo";
+import ClientOnly from "../components/ClientOnly";
+import { breadcrumbSchema } from "../lib/schema";
+
+const OfficesMap = lazy(() => import("../components/maps/OfficesMap"));
  
 const footprintStats = [
   { icon: Briefcase, label: "Projects Delivered", value: "200+" },
@@ -12,10 +16,6 @@ const footprintStats = [
 ];
  
 export default function WhereWeWork() {
-  const officesWithCoords = offices.filter(
-    (office) => office.lat !== undefined && office.lng !== undefined
-  );
- 
   // Center roughly on the East Africa region so all five pins are
   // visible on load without needing to pan.
   const mapCenter: [number, number] = [-0.2, 35.5];
@@ -26,6 +26,7 @@ export default function WhereWeWork() {
         title="Where We Work"
         description="Breinscope operates across Kenya, Somalia, Rwanda, and South Sudan — from our continental hub in Nairobi to offices and partner entities across the region."
         path="/where-we-work"
+        jsonLd={breadcrumbSchema([{ name: "Where We Work", path: "/where-we-work" }])}
       />
       {/* ================= HERO ================= */}
       <section className="bg-brand-navy py-20">
@@ -77,46 +78,10 @@ export default function WhereWeWork() {
             explore.
           </p>
  
-          <div className="relative isolate mt-8 overflow-hidden rounded-2xl border border-brand-sky/30 shadow-xl">
-            <MapContainer
-              center={mapCenter}
-              zoom={4}
-              scrollWheelZoom={false}
-              style={{ height: "480px", width: "100%" }}
-            >
-              <TileLayer
-                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-              />
-              {officesWithCoords.map((office) => (
-                <Marker
-                  key={office.name}
-                  position={[office.lat as number, office.lng as number]}
-                  icon={brandPin}
-                >
-                  <Popup>
-                    <div className="font-body">
-                      <p className="font-heading text-sm font-semibold text-brand-navy">
-                        {office.name}
-                      </p>
-                      <p className="mt-1 text-xs text-brand-charcoal">
-                        {office.address}
-                      </p>
-                      {office.phones.map((phone) => (
-                        <p key={phone} className="mt-1 text-xs text-brand-charcoal">
-                          {phone}
-                        </p>
-                      ))}
-                      {office.email && (
-                        <p className="mt-1 text-xs text-brand-charcoal">
-                          {office.email}
-                        </p>
-                      )}
-                    </div>
-                  </Popup>
-                </Marker>
-              ))}
-            </MapContainer>
+          <div className="relative isolate mt-8 h-80 overflow-hidden rounded-2xl border border-brand-sky/30 bg-brand-sky/20 shadow-xl sm:h-120">
+            <ClientOnly>
+              <OfficesMap offices={offices} center={mapCenter} zoom={4} />
+            </ClientOnly>
           </div>
           <p className="mt-3 text-xs text-brand-charcoal/60">
             Map data &copy; OpenStreetMap contributors.
@@ -163,13 +128,13 @@ export default function WhereWeWork() {
                     className="mt-2 flex items-center gap-2 text-sm text-brand-charcoal/80"
                   >
                     <Phone className="h-4 w-4 flex-none text-brand-blue" />
-                    <span>{phone}</span>
+                    <a href={telHref(phone)} className="hover:underline">{phone}</a>
                   </div>
                 ))}
                 {office.email && (
                   <div className="mt-2 flex items-center gap-2 text-sm text-brand-charcoal/80">
                     <Mail className="h-4 w-4 flex-none text-brand-blue" />
-                    <span>{office.email}</span>
+                    <a href={`mailto:${office.email}`} className="break-all hover:underline">{office.email}</a>
                   </div>
                 )}
               </div>

@@ -1,6 +1,5 @@
-import { useEffect, useState } from "react";
+import { lazy, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { MapContainer, TileLayer, Marker } from "react-leaflet";
 import {
   ArrowRight,
   Cpu,
@@ -9,10 +8,16 @@ import {
   CalendarDays,
 } from "lucide-react";
 import { offices } from "../data/offices";
-import { brandPin } from "../lib/brandPin";
 import { partners } from "../data/partners";
 import { expertiseAreas } from "../data/expertise";
+import { homeFaqs } from "../data/faqs";
 import Seo from "../components/Seo";
+import { responsiveImage } from "../lib/images";
+import ClientOnly from "../components/ClientOnly";
+import FaqSection from "../components/FaqSection";
+import { faqPageSchema } from "../lib/schema";
+
+const OfficesMap = lazy(() => import("../components/maps/OfficesMap"));
  
 const stats = [
   { value: "200+", label: "Projects Delivered" },
@@ -73,22 +78,22 @@ const heroSlideContent = [
   {
     title: "Clean Water, Lasting Impact",
     tagline: "Expanding access to safe water across East Africa's communities.",
-    image: "/images/hero/water-pump.jpg",
+    image: "/images/hero/water-pump.webp",
   },
   {
     title: "Climate-Smart Agriculture",
     tagline: "Empowering farmers with resilient, sustainable practices.",
-    image: "/images/hero/farmer-irrigation-field.jpg",
+    image: "/images/hero/farmer-irrigation-field.webp",
   },
   {
     title: "Strengthening Institutions",
     tagline: "Building capacity for effective, accountable governance.",
-    image: "/images/hero/workshop-meeting.jpg",
+    image: "/images/hero/workshop-meeting.webp",
   },
   {
     title: "Restoring Our Landscapes",
     tagline: "Partnering with communities to protect natural resources.",
-    image: "/images/hero/tree-planting.jpg",
+    image: "/images/hero/tree-planting.webp",
   },
 ];
  
@@ -97,34 +102,31 @@ const featuredProjects = [
     client: "Kibwezi Makindu Water & Sanitation Co. (KIBMAWASCO)",
     work: "Water Safety Plan development under the Sustainable Access to Safe Water (SA-SaWa) program, funded by the Coca-Cola Foundation via Millennium Water Alliance Kenya.",
     date: "August 2025",
-    image: "/images/home/KIBMAWASCO.jpg",
+    image: "/images/home/KIBMAWASCO.webp",
   },
   {
     client: "Africa Capacity Building Foundation (ACBF)",
     work: "Gender-Responsive Capacity Needs Assessments across five countries (Lesotho, Namibia, Senegal, Côte d'Ivoire, Rwanda) under the AU-GRAP Project.",
     date: "June 2025",
-    image: "/images/home/ACBF.jpg",
+    image: "/images/home/ACBF.webp",
   },
   {
     client: "Inclusive Climate Change Adaptation for a Sustainable Africa (ICCASA)",
     work: "Development of a gender-transformative and inclusive strategic plan (2024–2029).",
     date: "March 2025",
-    image: "/images/home/ICCASA.jpg",
+    image: "/images/home/ICCASA.webp",
   },
   {
     client: "CARE Kenya",
     work: "Domestication and operationalization of the MIWASCO Water Safety Plan.",
     date: "January 2024",
-    image: "/images/home/CARE.jpg",
+    image: "/images/home/CARE.webp",
   },
 ];
  
 export default function Home() {
   const mapCenter: [number, number] = [-0.2, 35.5];
-  const officesWithCoords = offices.filter(
-    (office) => office.lat !== undefined && office.lng !== undefined
-  );
- 
+
   // Hero slideshow — uses its own heroSlideContent data (thematic
   // captions, decoupled from featuredProjects below). Background image
   // crossfades on a timer; the headline/CTA text above it stays fixed,
@@ -141,10 +143,11 @@ export default function Home() {
   return (
     <main className="bg-white font-body text-brand-charcoal">
       <Seo
-        title="Home"
-        description="A Kenyan-owned development consultancy delivering measurable impact across 11 sectors and 5 countries — trusted by the World Bank, USAID, UNICEF, and governments across East and Central Africa for over 20 years."
+        title="Development Consultants in Kenya & East Africa"
+        description="Kenyan-owned development consultancy since 2002: research, M&E, capacity building and programme design across 11 sectors for the World Bank, USAID, UNICEF and governments."
         path="/"
         preloadImages={[heroSlideContent[0].image]}
+        jsonLd={faqPageSchema(homeFaqs)}
       />
       {/* ================= HERO ================= */}
       <section className="relative overflow-hidden bg-brand-navy">
@@ -153,8 +156,13 @@ export default function Home() {
         {heroSlideContent.map((slide, index) => (
           <img
             key={slide.title}
-            src={slide.image}
+            {...responsiveImage(slide.image)}
             alt={slide.title}
+            // Only the first slide is needed for first paint; the others
+            // fade in 6s+ later, so don't let them compete for bandwidth.
+            loading={index === 0 ? "eager" : "lazy"}
+            fetchPriority={index === 0 ? "high" : "low"}
+            decoding="async"
             className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ease-in-out ${
               index === currentSlide ? "opacity-100" : "opacity-0"
             }`}
@@ -167,11 +175,11 @@ export default function Home() {
             navy-to-white cut. */}
         <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-28 bg-linear-to-b from-transparent to-white" />
  
-        <div className="relative mx-auto max-w-4xl px-6 pb-16 pt-24 text-center sm:pt-32">
+        <div className="relative mx-auto max-w-4xl px-4 pb-16 pt-16 text-center sm:px-6 sm:pt-32">
           <p className="font-heading text-sm font-semibold uppercase tracking-wide text-brand-amber">
             Development Consultancy · Est. 2002
           </p>
-          <h1 className="mt-4 font-heading text-4xl font-semibold leading-tight text-white sm:text-5xl lg:text-6xl">
+          <h1 className="mt-4 font-heading text-3xl font-semibold leading-tight text-white min-[375px]:text-4xl sm:text-5xl lg:text-6xl">
             Turning Africa's Development Challenges Into Measurable Success
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-brand-sky">
@@ -254,6 +262,8 @@ export default function Home() {
           <div className="flex w-max animate-marquee gap-12">
             {[...trustLogos, ...trustLogos].map((partner, index) => (
               <img
+                loading="lazy"
+                decoding="async"
                 key={`${partner.name}-${index}`}
                 src={partner.image}
                 alt={partner.name}
@@ -395,6 +405,8 @@ export default function Home() {
               >
                 <div className="mb-5 overflow-hidden rounded-lg">
                   <img
+                    loading="lazy"
+                    decoding="async"
                     src={project.image}
                     alt={project.client}
                     className="aspect-video w-full object-cover"
@@ -455,31 +467,30 @@ export default function Home() {
             {/* Decorative, non-interactive mini map — dragging and zoom
                 disabled since this is a teaser, not the full map (that
                 lives on the Where We Work page). */}
-            <div className="relative isolate overflow-hidden rounded-2xl border border-brand-sky/30 shadow-xl">
-              <MapContainer
-                center={mapCenter}
-                zoom={4}
-                dragging={false}
-                zoomControl={false}
-                scrollWheelZoom={false}
-                doubleClickZoom={false}
-                attributionControl={false}
-                style={{ height: "340px", width: "100%" }}
-              >
-                <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-                {officesWithCoords.map((office) => (
-                  <Marker
-                    key={office.name}
-                    position={[office.lat as number, office.lng as number]}
-                    icon={brandPin}
-                  />
-                ))}
-              </MapContainer>
+            <div className="relative isolate h-64 overflow-hidden rounded-2xl border border-brand-sky/30 bg-brand-sky/20 shadow-xl sm:h-85">
+              <ClientOnly>
+                <OfficesMap
+                  offices={offices}
+                  center={mapCenter}
+                  zoom={4}
+                  interactive={false}
+                  showPopups={false}
+                  showAttribution={false}
+                />
+              </ClientOnly>
             </div>
           </div>
         </div>
       </section>
  
+      {/* ================= FAQ ================= */}
+      {/* Visible FAQ + matching FAQPage JSON-LD (see Seo above), both
+          fed from src/data/faqs.ts. */}
+      <FaqSection
+        faqs={homeFaqs}
+        intro="Quick answers about who we are, where we work, and how to engage our team."
+      />
+
       {/* ================= FINAL CTA ================= */}
       <section className="bg-brand-amber">
         <div className="mx-auto flex max-w-6xl flex-col items-center gap-6 px-6 py-16 text-center">

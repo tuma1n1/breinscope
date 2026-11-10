@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import Seo from "../components/Seo";
+import { breadcrumbSchema } from "../lib/schema";
  
 export default function PrivacyPolicy() {
   return (
@@ -8,6 +9,7 @@ export default function PrivacyPolicy() {
         title="Privacy Policy"
         description="How Breinscope Consultants collects, uses, and protects information submitted through breinscope.co.ke."
         path="/privacy-policy"
+        jsonLd={breadcrumbSchema([{ name: "Privacy Policy", path: "/privacy-policy" }])}
       />
       <div className="mx-auto max-w-3xl px-6">
         <p className="font-heading text-sm font-semibold uppercase text-brand-amber">

@@ -21,7 +21,7 @@ export const insights: Insight[] = [
     date: "September 2026",
     readTime: "4 min read",
     author: "Breinscope Technical Team",
-    image: "/images/insights/treatment-plant.jpg",
+    image: "/images/insights/treatment-plant.webp",
     body: [
       "A Water Safety Plan (WSP) is, on paper, a fairly standardized WHO framework: identify hazards along the water supply chain, assess risk, and put control measures in place. In practice, applying that framework across Kenya's arid and semi-arid lands (ASALs) surfaces a different set of questions than a WSP built for a conventional urban utility.",
       "In our recent work supporting Water Safety Plan development for a water and sanitation company operating across ASAL segments of Kenya, three issues came up repeatedly. First, source reliability itself is often the dominant risk — in many ASAL contexts, the question isn't only 'is this water safe to drink' but 'will this source still be producing water in six months.' A WSP that treats supply reliability as a footnote rather than a core hazard misses what actually keeps county water managers up at night.",
@@ -40,7 +40,7 @@ export const insights: Insight[] = [
     date: "August 2026",
     readTime: "5 min read",
     author: "Breinscope Technical Team",
-    image: "/images/insights/meeting.jpg",
+    image: "/images/insights/meeting.webp",
     body: [
       "Multi-country capacity needs assessments promise consistency: one methodology, one set of tools, comparable results across borders. That promise is genuinely useful for a continental body trying to benchmark institutional capacity — but delivering it well requires knowing exactly where standardization helps and where it needs to bend.",
       "In a recent gender-responsive Capacity Needs Assessment spanning five countries under a continental capacity-building programme, the core assessment framework stayed constant throughout. What had to flex, repeatedly, was how gender-responsiveness itself was operationalized in each institutional context. A question that reads as neutral in one country's civil service structure can carry a very different weight in another, depending on how gender mandates are already embedded — or not — in that institution's policy environment.",
@@ -58,7 +58,7 @@ export const insights: Insight[] = [
     date: "July 2026",
     readTime: "4 min read",
     author: "Breinscope Technical Team",
-    image: "/images/insights/climate.jpg",
+    image: "/images/insights/climate.webp",
     body: [
       "Climate adaptation strategic plans are usually built on multi-year horizons, and for good reason — the underlying problem (shifting rainfall patterns, changing agricultural viability, resource competition) doesn't resolve on an annual cycle. But there's a tension worth naming: the plan's timeframe is long, while the risk environment it's responding to keeps moving underneath it.",
       "In developing a gender-transformative, inclusive strategic plan for climate change adaptation across a multi-country African context, the most useful design decision wasn't in the five-year targets themselves — it was in building a shorter internal review rhythm underneath them. A strategic plan that only gets revisited at its midterm or endline evaluation is, in practice, making five-year bets on a fast-moving variable.",
@@ -76,7 +76,7 @@ export const insights: Insight[] = [
     date: "June 2026",
     readTime: "4 min read",
     author: "Breinscope Technical Team",
-    image: "/images/insights/workshop-meeting.jpg",
+    image: "/images/insights/workshop-meeting.webp",
     body: [
       "Most agriculture curriculum development work assumes a few things: a relatively stable cohort of learners, a physical space that will remain accessible, and a delivery timeline that won't be interrupted. In parts of Somalia, none of those assumptions can be taken for granted — and a curriculum that depends on them tends to fail quietly, not loudly.",
       "In developing an agriculture curriculum for a response-innovation programme in Somalia, the design had to account for displacement, interrupted access, and instructors who might not be the same people from one cycle to the next. That shaped some concrete choices: modular content that doesn't require every session to happen in sequence, materials that can be handed to a new instructor without extensive retraining, and an emphasis on practical, low-input agricultural techniques that don't assume consistent access to inputs or infrastructure.",
@@ -93,7 +93,7 @@ export const insights: Insight[] = [
     date: "May 2026",
     readTime: "3 min read",
     author: "Breinscope Technical Team",
-    image: "/images/insights/Training.jpg",
+    image: "/images/insights/Training.webp",
     body: [
       "It's common for development programmes to include a conflict-sensitivity training as part of staff onboarding — a half-day session, a checklist, a reminder to 'do no harm.' That's useful, but it's a different thing from conflict-sensitive programme design, which asks a harder question: does the programme's own structure, targeting, and delivery model risk creating or deepening local tensions, independent of what any individual staff member does?",
       "In supporting conflict-sensitivity capacity building for field partners and staff, and separately in developing a conflict-resolution and entrepreneurship curriculum for youth at risk, the most valuable shift wasn't in individual behavior — it was in getting programme teams to interrogate their own targeting criteria, resource distribution mechanisms, and community engagement processes for conflict risk, before those elements were finalized rather than after something went wrong.",

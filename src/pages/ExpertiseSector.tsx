@@ -4,6 +4,8 @@ import { expertiseAreas } from "../data/expertise";
 import { sectorContent } from "../data/sectorContent";
 import { projects } from "../data/projects";
 import Seo from "../components/Seo";
+import { responsiveImage } from "../lib/images";
+import { breadcrumbSchema, serviceSchema } from "../lib/schema";
  
 export default function ExpertiseSector() {
   const { slug } = useParams<{ slug: string }>();
@@ -60,6 +62,18 @@ export default function ExpertiseSector() {
         description={area.description}
         path={`/expertise/${area.slug}`}
         preloadImages={[area.image]}
+        jsonLd={[
+          serviceSchema({
+            name: area.label,
+            description: area.description,
+            path: `/expertise/${area.slug}`,
+            serviceTypes: sectorContent[area.slug]?.focusAreas ?? [],
+          }),
+          breadcrumbSchema([
+            { name: "Our Expertise", path: "/expertise" },
+            { name: area.label, path: `/expertise/${area.slug}` },
+          ]),
+        ]}
       />
       {/* ================= HERO / BANNER ================= */}
       <section className="relative overflow-hidden bg-brand-navy">
@@ -68,8 +82,9 @@ export default function ExpertiseSector() {
             a different naming pattern, rename them to match the slug
             (see expertise.ts) rather than editing this line per sector. */}
         <img
-          src={area.image}
+          {...responsiveImage(area.image)}
           alt={area.label}
+          fetchPriority="high"
           className="absolute inset-0 h-full w-full object-cover"
         />
         <div className="absolute inset-0 bg-brand-navy/75" />

@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight, Calendar, Clock } from "lucide-react";
 import { insights } from "../data/insights";
 import Seo from "../components/Seo";
+import { breadcrumbSchema } from "../lib/schema";
  
 export default function Insights() {
   return (
@@ -10,7 +11,8 @@ export default function Insights() {
         title="Insights"
         description="Thought leadership from Breinscope Consultants on water safety, climate resilience, capacity building, and development practice across Africa."
         path="/insights"
-        preloadImages={insights.slice(0, 3).map((article) => article.image)}
+        jsonLd={breadcrumbSchema([{ name: "Insights", path: "/insights" }])}
+        preloadImages={[insights[0].image]}
       />
       {/* ================= HERO ================= */}
       <section className="bg-brand-navy py-20">

@@ -39,7 +39,7 @@ export default function Navbar() {
  
   return (
     <header className="sticky top-0 z-50 border-b border-white/10 bg-brand-navy/70 shadow-lg shadow-brand-navy/20 backdrop-blur-xl">
-      <nav className="mx-auto flex h-18 max-w-7xl items-center justify-between px-6 py-3">
+      <nav className="mx-auto flex h-18 max-w-7xl items-center justify-between px-4 py-3 sm:px-6">
         {/* ---------------- Logo ---------------- */}
         <NavLink to="/" className="flex items-center gap-3">
           <img
@@ -131,9 +131,11 @@ export default function Navbar() {
         {/* ---------------- Mobile toggle ---------------- */}
         <button
           type="button"
-          className="text-white lg:hidden"
+          className="-mr-2 p-2 text-white lg:hidden"
           onClick={() => setMobileOpen((prev) => !prev)}
           aria-label="Toggle menu"
+          aria-expanded={mobileOpen}
+          aria-controls="mobile-menu"
         >
           {mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
         </button>
@@ -141,8 +143,15 @@ export default function Navbar() {
  
       {/* ---------------- Mobile menu ---------------- */}
       {mobileOpen && (
-        <div className="border-t border-white/10 bg-brand-navy/95 backdrop-blur-xl lg:hidden">
-          <div className="space-y-1 px-6 py-4">
+        <div
+          id="mobile-menu"
+          // The header is sticky, so a menu taller than the screen (e.g.
+          // Expertise expanded on an iPhone SE/7) would push its last
+          // links off-screen with no way to reach them. Cap it at the
+          // viewport height below the 72px bar and let it scroll.
+          className="max-h-[calc(100dvh-4.5rem)] overflow-y-auto overscroll-contain border-t border-white/10 bg-brand-navy/95 backdrop-blur-xl lg:hidden"
+        >
+          <div className="space-y-1 px-4 py-4 sm:px-6">
             <NavLink
               to="/"
               end

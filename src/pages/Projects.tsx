@@ -8,6 +8,7 @@ import {
   type ClientType,
 } from "../data/projects";
 import Seo from "../components/Seo";
+import { breadcrumbSchema } from "../lib/schema";
  
 const ALL = "All";
  
@@ -70,6 +71,7 @@ export default function Projects() {
         title="Projects & Impact"
         description="Browse 60+ completed assignments since 2011 across agriculture, water, climate, governance, and health — filterable by sector, country, and client type."
         path="/projects"
+        jsonLd={breadcrumbSchema([{ name: "Projects & Impact", path: "/projects" }])}
       />
       {/* ================= HERO ================= */}
       <section className="bg-brand-navy py-20">
@@ -193,7 +195,7 @@ export default function Projects() {
  
           {/* Results grid */}
           {filtered.length === 0 ? (
-            <div className="mt-10 rounded-xl border border-dashed border-brand-sky/40 bg-brand-sky/10 p-12 text-center">
+            <div className="mt-10 rounded-xl border border-dashed border-brand-sky/40 bg-brand-sky/10 p-6 text-center sm:p-12">
               <p className="font-heading text-sm font-semibold text-brand-navy">
                 No projects match these filters
               </p>

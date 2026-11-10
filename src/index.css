@@ -18,3 +18,17 @@
     from { transform: translateX(0); }
     to   { transform: translateX(-50%); }
 }
+/* iOS Safari zooms the whole page when a form field with text smaller
+   than 16px is focused, and doesn't zoom back out. Keep fields at 16px
+   on phones; the sm:+ layouts keep their smaller text-sm styling. */
+@media (max-width: 639px) {
+    input, select, textarea {
+        font-size: 16px !important;
+    }
+}
+
+/* Keep long words (emails, URLs, org names) from forcing sideways
+   scrolling on narrow screens. */
+body {
+    overflow-wrap: break-word;
+}

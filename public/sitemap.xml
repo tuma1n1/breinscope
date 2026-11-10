@@ -1,166 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
- 
   <url>
     <loc>https://breinscope.co.ke/</loc>
-    <lastmod>2026-09-12</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
+    <lastmod>2026-11-10</lastmod>
   </url>
- 
   <url>
     <loc>https://breinscope.co.ke/about</loc>
-    <lastmod>2026-09-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2026-11-10</lastmod>
   </url>
- 
   <url>
     <loc>https://breinscope.co.ke/expertise</loc>
-    <lastmod>2026-09-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <lastmod>2026-11-10</lastmod>
   </url>
- 
-  <!-- 11 sector pages -->
+  <!-- Sector pages -->
   <url>
     <loc>https://breinscope.co.ke/expertise/agriculture-rural-development</loc>
-    <lastmod>2026-09-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2026-11-10</lastmod>
   </url>
   <url>
     <loc>https://breinscope.co.ke/expertise/climate-change-environment</loc>
-    <lastmod>2026-09-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2026-11-10</lastmod>
   </url>
   <url>
     <loc>https://breinscope.co.ke/expertise/energy-power-systems</loc>
-    <lastmod>2026-09-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2026-11-10</lastmod>
   </url>
   <url>
     <loc>https://breinscope.co.ke/expertise/water-sewerage</loc>
-    <lastmod>2026-09-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2026-11-10</lastmod>
   </url>
   <url>
     <loc>https://breinscope.co.ke/expertise/rural-urban-infrastructure</loc>
-    <lastmod>2026-09-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2026-11-10</lastmod>
   </url>
   <url>
     <loc>https://breinscope.co.ke/expertise/road-transportation</loc>
-    <lastmod>2026-09-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2026-11-10</lastmod>
   </url>
   <url>
     <loc>https://breinscope.co.ke/expertise/education-skills-development</loc>
-    <lastmod>2026-09-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2026-11-10</lastmod>
   </url>
   <url>
     <loc>https://breinscope.co.ke/expertise/digital-development</loc>
-    <lastmod>2026-09-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2026-11-10</lastmod>
   </url>
   <url>
     <loc>https://breinscope.co.ke/expertise/human-capital-consulting</loc>
-    <lastmod>2026-09-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2026-11-10</lastmod>
   </url>
   <url>
     <loc>https://breinscope.co.ke/expertise/global-health-wash</loc>
-    <lastmod>2026-09-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2026-11-10</lastmod>
   </url>
   <url>
     <loc>https://breinscope.co.ke/expertise/governance-social-economic-development</loc>
-    <lastmod>2026-09-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2026-11-10</lastmod>
   </url>
- 
   <url>
     <loc>https://breinscope.co.ke/projects</loc>
-    <lastmod>2026-09-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2026-11-10</lastmod>
   </url>
- 
   <url>
     <loc>https://breinscope.co.ke/clients</loc>
-    <lastmod>2026-09-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-10</lastmod>
   </url>
- 
   <url>
     <loc>https://breinscope.co.ke/where-we-work</loc>
-    <lastmod>2026-09-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-10</lastmod>
   </url>
- 
   <url>
     <loc>https://breinscope.co.ke/insights</loc>
-    <lastmod>2026-09-12</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-10</lastmod>
   </url>
- 
-  <!-- 5 insight articles -->
+  <!-- Insight articles -->
   <url>
     <loc>https://breinscope.co.ke/insights/water-safety-planning-asal-kenya</loc>
-    <lastmod>2026-09-12</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.6</priority>
+    <lastmod>2026-11-10</lastmod>
   </url>
   <url>
     <loc>https://breinscope.co.ke/insights/gender-responsive-capacity-assessments-multi-country</loc>
-    <lastmod>2026-09-12</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.6</priority>
+    <lastmod>2026-11-10</lastmod>
   </url>
   <url>
     <loc>https://breinscope.co.ke/insights/climate-adaptation-strategic-planning-five-year-horizon</loc>
-    <lastmod>2026-09-12</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.6</priority>
+    <lastmod>2026-11-10</lastmod>
   </url>
   <url>
     <loc>https://breinscope.co.ke/insights/agriculture-curriculum-development-fragile-contexts</loc>
-    <lastmod>2026-09-12</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.6</priority>
+    <lastmod>2026-11-10</lastmod>
   </url>
   <url>
     <loc>https://breinscope.co.ke/insights/conflict-sensitive-programming-what-it-actually-requires</loc>
-    <lastmod>2026-09-12</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.6</priority>
+    <lastmod>2026-11-10</lastmod>
   </url>
- 
   <url>
     <loc>https://breinscope.co.ke/contact</loc>
-    <lastmod>2026-09-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <lastmod>2026-11-10</lastmod>
   </url>
- 
   <url>
     <loc>https://breinscope.co.ke/privacy-policy</loc>
-    <lastmod>2026-09-12</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
+    <lastmod>2026-11-10</lastmod>
   </url>
- 
 </urlset>

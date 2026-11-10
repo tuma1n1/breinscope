@@ -9,6 +9,7 @@ import {
 } from "lucide-react";
 import { partners } from "../data/partners";
 import Seo from "../components/Seo";
+import { breadcrumbSchema } from "../lib/schema";
  
 const clientSegments = [
   {
@@ -77,6 +78,7 @@ export default function ClientsPartners() {
         title="Clients & Partners"
         description="Trusted by the World Bank, USAID, UNICEF, KfW, GIZ, and institutions across government, multilateral, and NGO sectors for over 20 years."
         path="/clients"
+        jsonLd={breadcrumbSchema([{ name: "Clients & Partners", path: "/clients" }])}
       />
       {/* ================= HERO ================= */}
       <section className="bg-brand-navy py-20">
@@ -150,6 +152,8 @@ export default function ClientsPartners() {
               className="flex h-24 items-center justify-center rounded-xl border border-brand-sky/30 bg-white p-4 shadow-sm"
             >
               <img
+                loading="lazy"
+                decoding="async"
                 src={partner.image}
                 alt={partner.name}
                 className="h-full w-full object-contain"

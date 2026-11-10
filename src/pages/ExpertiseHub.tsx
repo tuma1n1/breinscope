@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight, Compass, ClipboardCheck, Settings2 } from "lucide-react";
 import { expertiseAreas } from "../data/expertise";
 import Seo from "../components/Seo";
+import { breadcrumbSchema } from "../lib/schema";
  
 const serviceMatrix = [
   {
@@ -46,6 +47,7 @@ export default function ExpertiseHub() {
         title="Our Expertise"
         description="Eleven sectors of deep, practical expertise — from agriculture and climate change to digital development and governance — delivered across East and Central Africa."
         path="/expertise"
+        jsonLd={breadcrumbSchema([{ name: "Our Expertise", path: "/expertise" }])}
       />
       {/* ================= HERO ================= */}
       <section className="bg-brand-navy py-20">

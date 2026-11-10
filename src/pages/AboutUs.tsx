@@ -13,6 +13,8 @@ import {
   Cpu,
 } from "lucide-react";
 import Seo from "../components/Seo";
+import { responsiveImage } from "../lib/images";
+import { breadcrumbSchema } from "../lib/schema";
  
 // ---------------------------------------------------------------------
 // Content — sourced from the Breinscope Company Profile (2026 Edition)
@@ -113,32 +115,32 @@ const leadershipTeam = [
   {
     name: "Francis Ogot",
     role: "Executive Director & CEO",
-    image: "/images/team/Francis-Ogot.jpg",
+    image: "/images/team/Francis-Ogot.webp",
   },
   {
     name: "Shadrack Oyier",
     role: "Community Development Associate",
-    image: "/images/team/Shadrack-Oyier.jpg",
+    image: "/images/team/Shadrack-Oyier.webp",
   },
   {
     name: "Hagai Ongecha Oyaro",
     role: "Research Director",
-    image: "/images/team/Hagai-Ongecha.jpg",
+    image: "/images/team/Hagai-Ongecha.webp",
   },
   {
     name: "Willis Odhiambo Okul",
     role: "Development Consultant",
-    image: "/images/team/Willis-Odhiambo.jpg",
+    image: "/images/team/Willis-Odhiambo.webp",
   },
   {
     name: "Lynette Obare",
     role: "Gender Associate",
-    image: "/images/team/Lynette-Obare.jpg",
+    image: "/images/team/Lynette-Obare.webp",
   },
   {
     name: "Vincent Tengeye Makokha",
     role: "Project Planning and Management Practitioner",
-    image: "/images/team/Vincent-Tengeye.jpg",
+    image: "/images/team/Vincent-Tengeye.webp",
   },
 ];
  
@@ -149,13 +151,15 @@ export default function AboutUs() {
         title="About Us"
         description="Breinscope Consultants is a Kenyan-owned development consultancy founded in 2002, delivering measurable impact across East and Central Africa for over 20 years."
         path="/about"
-        preloadImages={["/images/banners/cities.jpg", "/images/Nai_HQ.jpg"]}
+        jsonLd={breadcrumbSchema([{ name: "About Us", path: "/about" }])}
+        preloadImages={["/images/banners/cities.webp"]}
       />
       {/* ================= HERO ================= */}
       <section className="relative overflow-hidden bg-brand-navy">
         <img
-          src="/images/banners/cities.jpg"
+          {...responsiveImage("/images/banners/cities.webp")}
           alt="Breinscope Consultants — who we are"
+          fetchPriority="high"
           className="absolute inset-0 h-full w-full object-cover"
         />
         <div className="absolute inset-0 bg-brand-navy/70" />
@@ -239,7 +243,9 @@ export default function AboutUs() {
  
             <div className="overflow-hidden rounded-2xl shadow-xl">
               <img
-                src="/images/Nai_HQ.jpg"
+                loading="lazy"
+                decoding="async"
+                src="/images/Nai_HQ.webp"
                 alt="Breinscope Nairobi HQ"
                 className="aspect-4/5 w-full object-cover"
               />
@@ -251,7 +257,7 @@ export default function AboutUs() {
       {/* ================= MISSION & VISION ================= */}
       <section className="bg-brand-navy py-20">
         <div className="mx-auto grid max-w-6xl grid-cols-1 gap-8 px-6 md:grid-cols-2">
-          <div className="rounded-2xl bg-white/5 p-8">
+          <div className="rounded-2xl bg-white/5 p-6 sm:p-8">
             <p className="font-heading text-sm font-semibold uppercase text-brand-amber">
               Our Mission
             </p>
@@ -262,7 +268,7 @@ export default function AboutUs() {
               resilience, and growth.
             </p>
           </div>
-          <div className="rounded-2xl bg-white/5 p-8">
+          <div className="rounded-2xl bg-white/5 p-6 sm:p-8">
             <p className="font-heading text-sm font-semibold uppercase text-brand-amber">
               Our Vision
             </p>
@@ -381,6 +387,8 @@ export default function AboutUs() {
                 className="flex items-center gap-4 overflow-hidden rounded-xl border-t-4 border-brand-amber bg-white p-4 shadow-md transition-shadow hover:shadow-lg"
               >
                 <img
+                  loading="lazy"
+                  decoding="async"
                   src={person.image}
                   alt={person.name}
                   className="h-24 w-20 flex-none rounded-lg object-cover"
@@ -403,7 +411,7 @@ export default function AboutUs() {
               wide. Navy-tinted background + shadow gives this real
               presence instead of a faint outline on white. */}
           
-          <div className="mt-10 rounded-2xl border-t-4 border-brand-navy bg-brand-navy/5 p-8 shadow-inner">
+          <div className="mt-10 rounded-2xl border-t-4 border-brand-navy bg-brand-navy/5 p-5 shadow-inner sm:p-8">
             <h3 className="mb-8 text-center font-heading text-sm font-semibold uppercase tracking-wide text-brand-navy/70">
               Organizational Structure
             </h3>
